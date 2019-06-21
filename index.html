@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="calc.js"></script>
 </head>
 <body>
 
 <div class="grid-container">
-  <div class="input">0</div>
+  <div id="input">0</div>
 
   <button class="grid-item">&#37</button>
   <button class="grid-item">&#8730</button>
   <button class="grid-item">x&#178</button>
   <button class="grid-item">1/x</button>
 
-  <button class="grid-item">CE</button>
+  <button id="CE" class="grid-item" onclick='input(this.id)'>CE</button>
   <button class="grid-item">C</button>
   <button class="grid-item">&#171</button>
-  <button operation="divide" class="grid-item">/</button>
+  <button id="/" operation="divide" class="grid-item" onclick='input(this.id)'>/</button>
 
-  <button class="grid-number">7</button>
-  <button class="grid-number">8</button>
-  <button class="grid-number">9</button>
-  <button operation="multiply" class="grid-item">&#215</button>
+  <button id="7" class="grid-number" onclick='input(this.id)'>7</button>
+  <button id="8" class="grid-number" onclick='input(this.id)'>8</button>
+  <button id="9" class="grid-number" onclick='input(this.id)'>9</button>
+  <button id="*" operation="multiply" class="grid-item" onclick='input(this.id)'>&#215</button>
   
-  <button class="grid-number">4</button>
-  <button class="grid-number">5</button>
-  <button class="grid-number">6</button> 
-  <button operation="minus" class="grid-item">&#45</button> 
+  <button id="4" class="grid-number" onclick='input(this.id)'>4</button>
+  <button id="5" class="grid-number" onclick='input(this.id)'>5</button>
+  <button id="6" class="grid-number" onclick='input(this.id)'>6</button> 
+  <button id="-" operation="minus" class="grid-item" onclick='input(this.id)'>&#45</button> 
   
-  <button class="grid-number">1</button>
-  <button class="grid-number">2</button>
-  <button class="grid-number">3</button>
-  <button operation="plus" class="grid-item">+</button>
+  <button id="1" class="grid-number" onclick='input(this.id)'>1</button>
+  <button id="2" class="grid-number" onclick='input(this.id)'>2</button>
+  <button id="3" class="grid-number" onclick='input(this.id)'>3</button>
+  <button id="+" operation="plus" class="grid-item" onclick='input(this.id)'>+</button>
   
   <button class="grid-item">&#177</button>
-  <button class="grid-number">0</button>
-  <button class="grid-item">.</button>   
-  <button operation="equal" class="grid-item">=</button>   
+  <button id="0" class="grid-number" onclick='input(this.id)'>0</button>
+  <button id="." class="grid-item" onclick='input(this.id)'>.</button>   
+  <button id="=" operation="equal" class="grid-item" onclick='input(this.id)'>=</button>   
 </div>
 
 </body>
