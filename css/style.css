@@ -35,6 +35,7 @@ button:hover {
 
 button[operation]:hover {
   background-color: #15a1c1;
+  color: white;
 }
 
 .input {
