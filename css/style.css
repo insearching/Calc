@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+
+.grid-container {
+  display: grid;
+  margin: auto;
+  margin-top: 10vh;
+  width: 40%;
+  grid-template-columns: auto auto auto auto;
+  background-color: #e6e6e6;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: #f0f0f0;
+  border: 1px solid #e6e6e6;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.grid-number {
+  background-color: #fafafa;
+  border: 1px solid #e6e6e6;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #b1b4b5;
+}
+
+button[operation]:hover {
+  background-color: #15a1c1;
+}
+
+.input {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  font-size: 30px;
+  text-align: right;
+}
