@@ -1,40 +1,41 @@
 var phrase = "";
 
-function input(id){
-    if(id == "=") {
-        document.getElementById("input").innerHTML = evaluate(phrase.trim());
-        phrase = "";
-        return;
-    } else if(id == "CE"){
-        phrase = "";
-        document.getElementById("input").innerHTML = "0";
+function input(id) {
+    if(id == /D./g && phrase == ""){
+        print("0");
         return;
     }
 
-    phrase += id + " ";
-    document.getElementById("input").innerHTML = phrase;
+    if (id == "=") {
+        phrase = evaluate(phrase.trim());
+        print(phrase);
+        return;
+    } else if(id == "CE" || id == "C"){
+        phrase = "";
+        print("0");
+        return;
+    }
+
+    if (id in operators) {
+        id = " " + id + " ";
+    }
+
+    phrase += id;
+    print(phrase);
+}
+
+function print(output){
+    document.getElementById("input").innerHTML = output;
 }
 
 const operators = {
     '+': (x, y) => x + y,
     '-': (x, y) => x - y,
     '*': (x, y) => x * y,
-    '/': (x, y) => x / y
+    '/': (x, y) => x / y,
+    '%': (x, y) => x / 100 * y
 };
 
-let convert = (expr) => {
-    let numbers = [];
-    let operations = [];
-    expr.split(' ').forEach((token) => {
-        if (token in operators) {
-            console.log("operator add " + token);
-            operations.push(token);
-        } else {
-            numbers.push(parseFloat(token));
-        }
-    });
-    return numbers.join(" ").concat(" " + operations.join(" "))
-}
 
 let evaluate = (expr) => {
     let stack = [];
@@ -53,6 +54,20 @@ let evaluate = (expr) => {
     });
 
     return stack.pop();
+};
+
+
+let convert = (expr) => {
+    let numbers = [];
+    let operations = [];
+    expr.split(" ").forEach((token) => {
+        if (token in operators) {
+            operations.push(token);
+        } else {
+            numbers.push(parseFloat(token));
+        }
+    });
+    return numbers.join(" ").concat(" " + operations.join(" "))
 };
 
 
