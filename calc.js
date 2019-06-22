@@ -1,7 +1,11 @@
 var phrase = "";
 
 function input(id) {
-    if(id == /D./g && phrase == ""){
+    if(!(id in supportedOperators) && isNaN(id)){
+        alert("Operation is not supported yet :(")
+        return;
+    }
+    if (id == /D./g && phrase == "") {
         print("0");
         return;
     }
@@ -10,9 +14,18 @@ function input(id) {
         phrase = evaluate(phrase.trim());
         print(phrase);
         return;
-    } else if(id == "CE" || id == "C"){
-        phrase = "";
-        print("0");
+    } 
+    if (id == "CE" || id == "C") {
+        reset()
+        return;
+    } 
+    if (id == "rm"){
+        phrase = phrase.substring(0, phrase.length - 1);
+        if(phrase.length == 0){
+            reset()
+            return;
+        }
+        print(phrase);
         return;
     }
 
@@ -28,6 +41,11 @@ function print(output){
     document.getElementById("input").innerHTML = output;
 }
 
+function reset(){
+    phrase = "";
+    print("0");
+}
+
 const operators = {
     '+': (x, y) => x + y,
     '-': (x, y) => x - y,
@@ -36,6 +54,18 @@ const operators = {
     '%': (x, y) => x / 100 * y
 };
 
+const supportedOperators = {
+    '+': "plus",
+    '-': "minus",
+    '*': "multipy",
+    '/': "divide",
+    '=': "equal",
+    '%': "percent",
+    'C': "clear",
+    'CE': "clear-all",
+    '.': "dot",
+    'rm': "remove"
+};
 
 let evaluate = (expr) => {
     let stack = [];
