@@ -1,4 +1,7 @@
 var phrase = "";
+var InputEnum = Object.freeze({"NUMBER":1, "OPERATION":2, "NONE":3})
+var previousInput = InputEnum.NONE;
+let initial = "0"
 
 function input(id) {
     if(!(id in supportedOperators) && isNaN(id)){
@@ -6,12 +9,12 @@ function input(id) {
         return;
     }
     if (id == /D./g && phrase == "") {
-        print("0");
+        print(initial);
         return;
     }
 
     if (id == "=") {
-        phrase = evaluate(phrase.trim());
+        phrase = evaluate(trim(phrase));
         print(phrase);
         return;
     } 
@@ -20,8 +23,12 @@ function input(id) {
         return;
     } 
     if (id == "rm"){
-        phrase = phrase.substring(0, phrase.length - 1);
-        if(phrase.length == 0){
+        if (phrase == initial){
+            return;
+        }
+        let trimLength = trim(phrase).toString().length;
+        phrase = phrase.toString().substring(0, trimLength - 1);
+        if (phrase.length == 0){
             reset()
             return;
         }
@@ -30,7 +37,13 @@ function input(id) {
     }
 
     if (id in operators) {
+        if(previousInput == InputEnum.OPERATION || previousInput == InputEnum.NONE){
+            return;
+        }
         id = " " + id + " ";
+        previousInput = InputEnum.OPERATION
+    } else {
+        previousInput = InputEnum.NUMBER
     }
 
     phrase += id;
@@ -43,7 +56,12 @@ function print(output){
 
 function reset(){
     phrase = "";
-    print("0");
+    previousInput = InputEnum.NONE;
+    print(initial);
+}
+
+function trim(value){
+    return value.toString().trim()
 }
 
 const operators = {

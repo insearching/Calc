@@ -8,7 +8,7 @@
   grid-gap: 2px;
   background-color: #e6e6e6;
   padding: 10px;
-  max-width: 500px;
+  max-width: 70vw;
 }
 
 .grid-item, .grid-number {
