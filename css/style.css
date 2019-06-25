@@ -3,29 +3,29 @@
 .grid-container {
   display: grid;
   margin: auto;
-  margin-top: 10vh;
-  width: 40%;
+  margin-top: 4vh;
   grid-template-columns: auto auto auto auto;
+  grid-gap: 2px;
   background-color: #e6e6e6;
   padding: 10px;
+  max-width: 500px;
+}
+
+.grid-item, .grid-number {
+  border: none;
+  padding: 20px;
+  font-size: 22pt;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .grid-item {
   background-color: #f0f0f0;
-  border: 1px solid #e6e6e6;
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
 }
 
 .grid-number {
   background-color: #fafafa;
-  border: 1px solid #e6e6e6;
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
 
@@ -35,6 +35,7 @@ button {
 
 button:hover {
   background-color: #b1b4b5;
+  color: black;
 }
 
 button[operation]:hover {
@@ -47,6 +48,6 @@ button[operation]:hover {
   grid-column-end: 5;
   font-family: 'Montserrat', sans-serif;
   padding: 20px 5px;
-  font-size: 30px;
+  font-size: 22pt;
   text-align: right;
 }
