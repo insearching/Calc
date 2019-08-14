@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center; /* !!! */
+}
+
 .grid-container {
   display: grid;
-  margin: auto;
-  margin-top: 4vh;
+  margin: 0 auto;
+  text-align: left;
   grid-template-columns: auto auto auto auto;
   grid-gap: 2px;
   background-color: #e6e6e6;
   padding: 10px;
-  max-width: 70vw;
+  max-width: 50vw;
+
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .grid-item, .grid-number {
